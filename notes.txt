@@ -1,0 +1,11 @@
+http://localhost:3000/tokenPrice?time_from=1691875200&time_to=1692175119
+
+http://localhost:3000/tokenSupply
+
+https://explorer.solana.com/tx/5XYEGa8c3D42VP5CpLxgJKcA9mgdW8dwJXB7bDL93evdqAzqb7tPc5HRzYvosvsL6BumP1zi7pkVG7ZJaLdJnSoz?cluster=devnet
+
+http://localhost:3000/accountInfo?wallet=Dzbwfuif9XBFYNqHonbjnqGGF65wgi7N8tkp9kciPT4c
+
+npm i --legacy-peer-deps 
+serve -s dist
+

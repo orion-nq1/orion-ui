@@ -1,0 +1,104 @@
+{
+  "name": "app",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "start": "vue-cli-service serve",
+    "build": "vue-cli-service build --mode prod",
+    "lint": "vue-cli-service lint"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.x",
+    "@coral-xyz/anchor": "^0.29.0",
+    "@headlessui/vue": "^1.7.22",
+    "@iconify/tailwind": "^0.1.4",
+    "@pixiv/three-vrm": "^3.3.0",
+    "@solana/spl-token": "^0.4.3",
+    "@solana/spl-token-metadata": "^0.1.4",
+    "@solana/wallet-adapter-vue-ui": "^0.2.4",
+    "@solana/wallet-adapter-wallets": "^0.19.32",
+    "@solana/web3.js": "^1.91.7",
+    "@vueuse/head": "^2.0.0",
+    "axios": "^1.6.8",
+    "big-integer": "^1.6.52",
+    "bs58": "^4.0.1",
+    "buffer": "^6.0.3",
+    "core-js": "^3.8.3",
+    "cross-env": "^7.0.2",
+    "crypto-browserify": "^3.12.0",
+    "express": "^4.17.1",
+    "fs": "^0.0.1-security",
+    "lodash": "^4.17.21",
+    "node-fetch": "^2.6.1",
+    "node-polyfill-webpack-plugin": "^2.0.1",
+    "serialize-javascript": "^6.0.2",
+    "socket.io-client": "^4.8.1",
+    "solana-wallets-vue": "^0.6.0",
+    "stream-browserify": "^3.0.0",
+    "typescript": "~5.1.0",
+    "vue": "^3.2.13",
+    "vue-class-component": "^8.0.0-0",
+    "vue-router": "^4.0.13",
+    "vue3-toastify": "^0.2.1",
+    "vuex": "^4.0.2",
+    "vuex-router-sync": "^5.0.0",
+    "webpack": "^5.47.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.16",
+    "@babel/eslint-parser": "^7.12.16",
+    "@iconify/vue": "^3.2.0",
+    "@types/autoprefixer": "^10.2.0",
+    "@types/big.js": "^6.2.2",
+    "@types/bn.js": "^5.1.5",
+    "@types/bs58": "^4.0.4",
+    "@types/node": "^22.5.0",
+    "@types/vue": "^2.0.0",
+    "@types/webpack-manifest-plugin": "^3.0.8",
+    "@types/webpack-node-externals": "^3.0.4",
+    "@typescript-eslint/eslint-plugin": "^5.4.0",
+    "@typescript-eslint/parser": "^5.4.0",
+    "@vue/cli-plugin-babel": "~5.0.0",
+    "@vue/cli-plugin-eslint": "~5.0.0",
+    "@vue/cli-plugin-typescript": "~5.0.0",
+    "@vue/cli-service": "~5.0.0",
+    "@vue/compiler-sfc": "^3.0.0-0",
+    "@vue/eslint-config-typescript": "^9.1.0",
+    "autoprefixer": "^10.4.20",
+    "eslint": "^7.32.0",
+    "eslint-plugin-vue": "^8.0.3",
+    "html-webpack-plugin": "^5.6.0",
+    "postcss": "^8.4.38",
+    "tailwindcss": "^3.4.3",
+    "ts-node": "^10.9.2",
+    "webpack-manifest-plugin": "^5.0.0",
+    "webpack-node-externals": "^3.0.0"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true,
+      "vue/setup-compiler-macros": true,
+      "es2021": true
+    },
+    "extends": [
+      "plugin:vue/vue3-essential",
+      "eslint:recommended",
+      "@vue/typescript"
+    ],
+    "parserOptions": {
+      "ecmaVersion": 2021,
+      "parser": "@typescript-eslint/parser"
+    },
+    "rules": {
+      "no-unused-vars": "off",
+      "vue/script-setup-uses-vars": "error"
+    }
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead",
+    "not ie 11"
+  ]
+}
