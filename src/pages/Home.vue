@@ -53,12 +53,13 @@
         </p>
         
         <!-- Add a cool button -->
+        <router-link to="/dashboard">
         <button class="font-semibold mt-12 px-8 py-3 bg-transparent border-2 border-white/50 text-white 
                        rounded-full hover:bg-white/10 transition-all duration-300 
                        backdrop-blur-sm group">
-          <span class="group-hover:hidden">launch app</span>
-          <span class="hidden group-hover:inline">coming soon</span>
+          <span>launch app</span>
         </button>
+        </router-link>
       </div>
     </div>
   </template>
@@ -281,4 +282,5 @@
     50% { opacity: 0.3; }
   }
   </style>
+
   

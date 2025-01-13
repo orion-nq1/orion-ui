@@ -1,5 +1,5 @@
 import 'solana-wallets-vue/styles.css'
-import store from '@/vuex'; // Import your Vuex store
+import store from '@/store'; // Import your Vuex store
 
 import { createApp } from 'vue'
 import router from './router'

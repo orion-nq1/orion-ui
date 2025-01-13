@@ -6,7 +6,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
 body {
-  background-color: #272324;
+  @apply bg-slate-900;
   margin: 0;
   padding: 0;
 }
@@ -20,4 +20,42 @@ body::-webkit-scrollbar {
   src: url('../fonts/Jersey15-Regular.ttf') format('truetype');
   font-weight: 400;
   font-style: normal;
+}
+
+/* Wallet Multi Button */
+.swv-button-trigger {
+  @apply bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-xs h-8 font-semibold !important;
+}
+
+.swv-dropdown {
+  .swv-button-icon {
+    @apply hidden !important;
+  }
+  .swv-button > * + * {
+    @apply ml-0 !important;
+  }
+}
+
+.swv-modal-wrapper-no-logo {
+  @apply bg-slate-900 text-white !important;
+
+  button {
+    @apply hover:bg-slate-800 !important;
+  }
+
+  .swv-modal-list p {
+    @apply text-white !important;
+  }
+
+  .swv-modal-button-close {
+    @apply bg-slate-900 text-white !important;
+  }
+}
+
+.swv-dropdown-list {
+  @apply bg-slate-900 text-white !important;
+
+  li {
+    @apply hover:bg-slate-800 !important;
+  }
 }
