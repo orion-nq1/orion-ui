@@ -1,6 +1,6 @@
 <template>
     <div class="w-full rounded-3xl border border-slate-800 p-4 flex flex-col gap-6">
-        <div class="flex flex-col gap-3">
+        <div class="flex flex-col gap-4">
             <h2 class="text-xl font-bold text-white">
                 Portfolio
             </h2>
@@ -8,8 +8,8 @@
             <p class="text-white font-medium text-sm">
                 Your account balance is 
                 <span class="bg-green-500/70 backdrop-blur-sm text-white px-2 py-1 rounded-full mr-1">
-                    up ${{ formatAmount(userInfo.last24HoursChange?.amount) || 0 }} 
-                    ({{ userInfo.last24HoursChange?.percentage || 0 }}%)
+                    up ${{ formatAmount(userInfo?.user?.last24HoursChange?.amount) }} 
+                    ({{ userInfo?.user?.last24HoursChange?.percentage || 0 }}%)
                 </span> 
                 today
             </p>
@@ -21,7 +21,7 @@
             </p>
 
             <p class="text-white font-bold text-3xl">
-                ${{ formatAmount(userInfo.pendingRewards || 0) }} <span class="font-normal text-sm">USD</span>
+                ${{ formatAmount(userInfo?.user?.pendingRewards) }} <span class="font-normal text-sm">USD</span>
             </p>
         </div>
         <div class="flex flex-col">
@@ -31,7 +31,7 @@
                 </p>
 
                 <p>
-                    {{ userInfo.referralCount || 0 }}
+                    {{ userInfo?.user?.referralCount || 0 }}
                 </p>
             </div>
             <div class="flex justify-between items-center text-white font-normal text-sm pt-3">
@@ -40,32 +40,52 @@
                 </p>
 
                 <p>
-                    ${{ formatAmount(userInfo.totalRewards || 0) }} USD
+                    ${{ formatAmount(userInfo?.user?.totalRewards) }} USD
                 </p>
             </div>
         </div>
 
-        <div>
+        <div class="flex justify-between items-center mt-4">
             <button class="bg-slate-800 hover:bg-slate-800/80 text-white px-4 py-2 rounded-full w-auto text-sm">
                 View portfolio
             </button>
+            <div class="flex flex-col">
+                <p class="text-white font-normal text-sm text-right">Last signed in</p>
+                <p class="text-white font-bold text-sm text-right">{{ formatDate(userInfo?.user?.lastLoginAt) || 'Never' }}</p>
+            </div>
         </div>
     </div>
 </template>
 
 <script>
-import { store } from '@/store/store';
+import { mapState } from 'vuex';
 
 export default {
     name: 'PortfolioComponent',
     computed: {
-        userInfo() {
-            return store.state.userInfo;
-        }
+        ...mapState({
+            userInfo: state => state.userInfo
+        })
     },
     methods: {
         formatAmount(amount) {
             return (amount || 0).toFixed(2);
+        },
+        formatDate(dateString) {
+            if (!dateString) return 'Never';
+            
+            const date = new Date(dateString);
+            const now = new Date();
+            const diff = Math.floor((now - date) / 1000); // difference in seconds
+
+            if (diff < 60) return '1 min ago';
+            if (diff < 3600) return Math.floor(diff / 60) + ' mins ago';
+            if (diff < 7200) return '1 hour ago';
+            if (diff < 86400) return Math.floor(diff / 3600) + ' hours ago';
+            if (diff < 172800) return '1 day ago';
+            if (diff < 2592000) return Math.floor(diff / 86400) + ' days ago';
+            if (diff < 7776000) return '30+ days ago';
+            return '100+ days ago';
         }
     }
 }
