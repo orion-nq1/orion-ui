@@ -1,5 +1,5 @@
 import { createStore } from 'vuex';
-import { referralApi } from '@/utils/utils';
+import { referralApi } from '@/utils/referralUtils';
 
 // Load initial state from localStorage
 const savedState = localStorage.getItem('store') 

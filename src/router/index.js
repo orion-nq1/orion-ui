@@ -21,7 +21,7 @@ const routes = [
     meta: { requiresAuth: true }
   },
   {
-    path: "/connect-wallet",
+    path: "/connect",
     name: "connectWallet",
     component: ConnectWallet,
     meta: { requiresAuth: false }
@@ -31,7 +31,7 @@ const routes = [
     redirect: to => {
       // Store the referral code and redirect to home
       localStorage.setItem('referralCode', to.params.code);
-      return { path: '/connect-wallet' }
+      return { path: '/connect' }
     }
   }
 ];

@@ -8,8 +8,8 @@
             <p class="text-white font-medium text-sm">
                 Your account balance is 
                 <span class="bg-green-500/70 backdrop-blur-sm text-white px-2 py-1 rounded-full mr-1">
-                    up ${{ formatAmount(userInfo?.user?.last24HoursChange?.amount) }} 
-                    ({{ userInfo?.user?.last24HoursChange?.percentage || 0 }}%)
+                    up ${{ formatAmount(userInfo?.last24HoursChange?.amount) }} 
+                    ({{ userInfo?.last24HoursChange?.percentage || 0 }}%)
                 </span> 
                 today
             </p>
@@ -21,7 +21,7 @@
             </p>
 
             <p class="text-white font-bold text-3xl">
-                ${{ formatAmount(userInfo?.user?.pendingRewards) }} <span class="font-normal text-sm">USD</span>
+                ${{ formatAmount(userInfo?.pendingRewards) }} <span class="font-normal text-sm">USD</span>
             </p>
         </div>
         <div class="flex flex-col">
@@ -31,7 +31,7 @@
                 </p>
 
                 <p>
-                    {{ userInfo?.user?.referralCount || 0 }}
+                    {{ userInfo?.referralCount || 0 }}
                 </p>
             </div>
             <div class="flex justify-between items-center text-white font-normal text-sm pt-3">
@@ -40,7 +40,7 @@
                 </p>
 
                 <p>
-                    ${{ formatAmount(userInfo?.user?.totalRewards) }} USD
+                    ${{ formatAmount(userInfo?.totalRewards) }} USD
                 </p>
             </div>
         </div>
@@ -51,7 +51,7 @@
             </button>
             <div class="flex flex-col">
                 <p class="text-white font-normal text-sm text-right">Last signed in</p>
-                <p class="text-white font-bold text-sm text-right">{{ formatDate(userInfo?.user?.lastLoginAt) || 'Never' }}</p>
+                <p class="text-white font-bold text-sm text-right">{{ formatDate(userInfo?.lastLoginAt) || 'Never' }}</p>
             </div>
         </div>
     </div>
@@ -64,8 +64,14 @@ export default {
     name: 'PortfolioComponent',
     computed: {
         ...mapState({
-            userInfo: state => state.userInfo
+            userInfo: state => {
+                console.log('UserInfo State:', JSON.stringify(state.userInfo, null, 2));
+                return state.userInfo;
+            }
         })
+    },
+    mounted() {
+        console.log('Component Mounted, UserInfo:', JSON.stringify(this.userInfo, null, 2));
     },
     methods: {
         formatAmount(amount) {

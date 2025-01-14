@@ -12,7 +12,6 @@ export const referralApi = {
   signup: async (
     signMessage: any,
     publicKey: any,
-    referralCode?: string
   ): Promise<SignupResponse> => {
     try {
       if (!publicKey || !signMessage) {
@@ -35,7 +34,6 @@ export const referralApi = {
       // 4. Make API call
       const response = await axios.post(
         `${process.env.VUE_APP_API_URL}/signup`,
-        { referralCode },
         {
           headers: {
             'Authorization': `Bearer ${publicKey}.${encodedMessage}.${encodedSignature}`
@@ -88,7 +86,7 @@ export const referralApi = {
         const response = await axios.get(`${process.env.VUE_APP_API_URL}/user/${publicKey}`);
         
         if (response.status === 200) {
-            return response.data;
+            return response.data.user;
         }
     } catch (error) {
         if (axios.isAxiosError(error)) {

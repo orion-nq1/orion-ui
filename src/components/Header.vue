@@ -121,7 +121,7 @@
 import { ref, watch, onMounted } from 'vue';
 import { WalletMultiButton, useWallet } from 'solana-wallets-vue'
 import { store } from '@/store/store';
-import { referralApi } from '@/utils/utils';
+import { referralApi } from '@/utils/referralUtils';
 import Login from '@/modals/Login.vue';
 import { useRouter } from 'vue-router';
 import { toast } from 'vue3-toastify';
@@ -140,6 +140,8 @@ onMounted(async () => {
     // If user is connected, disconnect them first
     if (publicKey) {
       await disconnect();
+      localStorage.removeItem('referralCode');
+      store.commit('setReferralCode', null);
       // Wait a bit for disconnect to complete
       await new Promise(resolve => setTimeout(resolve, 500));
     }

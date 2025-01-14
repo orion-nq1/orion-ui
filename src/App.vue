@@ -33,7 +33,8 @@ watch(publicKey, async (newPublicKey) => {
   } else {
     // Clear user info when wallet disconnects
     store.commit('setUserInfo', null);
-    
+    store.commit('setReferralCode', null);
+    localStorage.removeItem('referralCode');
     // Handle logout
     if (wasLoggedIn) {
       router.push({ name: 'connectWallet' });

@@ -44,8 +44,7 @@ import { store } from '@/store/store';
 const baseUrl = process.env.VUE_APP_BASE_URL || 'https://nova.com';
 
 const referralUrl = computed(() => {
-    const code = store.state.userInfo?.user?.referralCode;
-    console.log(code);
+    const code = store.state.userInfo?.referralCode;
     return code ? `${baseUrl}/referral/${code}` : '';
 });
 
