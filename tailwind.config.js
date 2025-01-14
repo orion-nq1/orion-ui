@@ -37,6 +37,7 @@ module.exports = {
       fontFamily: {
         inter: ['Inter', 'sans-serif'],
         jersey: ['"Jersey 15"', 'serif'],
+        megrim: ['"Megrim Regular"', 'serif'],
       },
       animation: {
         marquee: 'marquee 25s linear infinite',

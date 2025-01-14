@@ -1,6 +1,15 @@
 <template>
     <div class="min-h-screen relative overflow-hidden bg-gradient-to-b from-[#0a0a2a] to-[#1a1a3a]"
          @mousemove="handleMouseMove">
+      <!-- Header -->
+      <div class="absolute top-4 right-4">
+        <div class="flex items-center gap-3">
+          <a href="https://x.com/TraderNovaAI" target="_blank">
+            <Icon icon="fa6-brands:x-twitter" class="text-white"/>
+          </a>
+         
+        </div>
+      </div>
       <!-- Stars Background -->
       <div class="absolute inset-0">
         <div v-for="(star, index) in backgroundStars" 
@@ -45,19 +54,15 @@
   
       <!-- Content -->
       <div class="relative z-10 flex flex-col items-center justify-center min-h-screen text-center px-4">
-        <h1 class="font-jersey text-8xl font-bold text-white mb-6 tracking-widest drop-shadow-[0_0_10px_rgba(255,255,255,0.5)]">
-          orion
+        <h1 class="font-megrim text-8xl font-bold text-white tracking-widest drop-shadow-[0_0_10px_rgba(255,255,255,0.5)]">
+          nova
         </h1>
-        <p class="font-semibold text-lg text-white/90 font-light">
-          ascend with orion, your crypto guiding star
-        </p>
-        
         <!-- Add a cool button -->
         <router-link to="/dashboard">
-        <button class="font-semibold mt-12 px-8 py-3 bg-transparent border-2 border-white/50 text-white 
+        <button class="font-semibold mt-8 px-8 py-3 bg-transparent border-2 border-white/50 text-white 
                        rounded-full hover:bg-white/10 transition-all duration-300 
-                       backdrop-blur-sm group">
-          <span>launch app</span>
+                       backdrop-blur-sm group hover:border-white">
+          <span class="font-megrim">Launch app</span>
         </button>
         </router-link>
       </div>
@@ -282,5 +287,7 @@
     50% { opacity: 0.3; }
   }
   </style>
-
+  <script setup>
+  import { Icon } from '@iconify/vue';
+  </script>
   
