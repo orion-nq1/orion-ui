@@ -11,7 +11,6 @@
         <div class="w-full md:w-1/3 flex flex-col gap-4">
             <!-- Content for right column -->
             <Referral />
-            <Subscribe />
         </div>
     </div>
 </template>
@@ -20,15 +19,13 @@
 import Portfolio from '@/components/Portfolio.vue';
 import Advantage from '@/components/Advantage.vue';
 import Referral from '@/components/Referral.vue';
-import Subscribe from '@/components/Subscribe.vue';
 
 export default {
     name: 'DashboardPartial',
     components: {
         Portfolio,
         Advantage,
-        Referral,
-        Subscribe,
+        Referral
     },
 }
 </script>
