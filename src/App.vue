@@ -17,7 +17,7 @@ const wallets = [
 ];
 
 // Then initialize wallet
-initWallet({ wallets });
+initWallet({ wallets, autoConnect: store.state.autoConnect });
 
 // Only after initialization, use the wallet
 const { publicKey } = useWallet();
