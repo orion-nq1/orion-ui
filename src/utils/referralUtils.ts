@@ -34,6 +34,7 @@ export const referralApi = {
       // 4. Make API call
       const response = await axios.post(
         `${process.env.VUE_APP_API_URL}/signup`,
+        {}, // Request body (empty in this case)
         {
           headers: {
             'Authorization': `Bearer ${publicKey}.${encodedMessage}.${encodedSignature}`

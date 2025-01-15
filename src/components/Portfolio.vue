@@ -65,7 +65,6 @@ export default {
     computed: {
         ...mapState({
             userInfo: state => {
-                console.log('UserInfo State:', JSON.stringify(state.userInfo, null, 2));
                 return state.userInfo;
             }
         })
